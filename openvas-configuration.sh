@@ -7,7 +7,7 @@
 # 
 #   DESCRIPTION:  export/import openvas configuration (only config, no results)
 # 
-#       OPTIONS:  -a <import|export> 
+#       OPTIONS:  -a <import|export> f <filename>
 #  REQUIREMENTS:  ---
 #        AUTHOR: Ryan Schulze (rs), ryan@ryanschulze.net
 #       CREATED: 04/20/2015 04:54:28 PM CDT
