@@ -68,7 +68,7 @@ parse_args() {
 #   DESCRIPTION:  Prints help and exits
 #===============================================================================
 print_help() {
-	echo "Usage: ${0##*/} -a import|export [ -f <filename> ] [ -c <configfile> ][ -h ] [ -v ] "
+	echo "Usage: ${0##*/} -a import|export [ -f <filename> ] [ -c <configfile> ] [ -h ]"
 	echo -e "-a import|export\timport or export the configuration"
 	echo -e "-f <filename>\t\tFilename to store/load the configuration, use - for stdin/stdout (default)"
 	echo -e "-c <configfile>\t\tSpecific omp config file to use, mandatory on imports"
