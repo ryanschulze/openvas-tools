@@ -167,7 +167,7 @@ show_errors() {
 
 #===  FUNCTION  ================================================================
 #          NAME:  pack
-#   DESCRIPTION:  A helper function for directing output to a file or stdout
+#   DESCRIPTION:  A helper function creating a tar of all the config
 #===============================================================================
 pack() {
 	cd "${TmpDir}"
@@ -180,7 +180,11 @@ pack() {
 #===============================================================================
 unpack() {
 	cd "${TmpDir}"
-	tar -xzf "${BaseDir}/${DumpFile}.tgz" 
+	if [[ -f "${BaseDir}/${DumpFile}.tgz" ]] ; then
+		tar -xzf "${BaseDir}/${DumpFile}.tgz"
+	elif [[ -f "${DumpFile}.tgz" ]] ; then
+		tar -xzf "${BaseDir}/${DumpFile}.tgz"
+	fi
 }
 
 #-------------------------------------------------------------------------------
@@ -1946,8 +1950,8 @@ case "${Action}" in
 	pack
 	;;
 	import )
-	if [[ ! -f ${BaseDir}/${DumpFile}.tgz ]] ; then
-		error "${BaseDir}/${DumpFile}.tgz not found"
+	if [[ ! -f ${BaseDir}/${DumpFile}.tgz || ! -f ${DumpFile}.tgz ]] ; then
+		error "${DumpFile}.tgz not found"
 		exit 1
 	fi
 	unpack
